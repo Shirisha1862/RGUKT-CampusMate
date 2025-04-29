@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="flex flex-col items-center justify-center py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center">
       <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
-        Welcome to CampusConnect
+        Welcome to RGUKT CampusMate
       </h1>
       <p className="text-lg md:text-2xl mb-8 max-w-xl">
         A platform to connect students, services, and products for a better college experience!

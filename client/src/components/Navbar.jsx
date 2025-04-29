@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Menu, X } from "lucide-react";
+import RGUKTLogo from "../assets/images/rgukt_logo.png";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -21,8 +22,14 @@ const Navbar = () => {
   return (
     <header className="bg-blue-600 text-white sticky top-0 z-50 shadow-md">
       <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">CampusConnect</Link>
-
+      <div className="flex items-center gap-2">
+          <img
+            src={RGUKTLogo} // Use the imported RGUKT logo
+            alt="RGUKT Logo"
+            className="w-12 h-12" />
+          
+        <Link to="/" className="text-2xl font-bold">CampusMate</Link>
+        </div>
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
           <form onSubmit={handleSearch} className="relative">
