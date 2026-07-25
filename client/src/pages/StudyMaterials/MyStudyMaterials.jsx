@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from "../../context/AuthContext";
 import axios from 'axios';
-
+import { API_BASE_URL } from "../../utils/api.js";
 const MyStudyMaterials = () => {
   const { token } = useAuth();
   const [studyMaterials, setStudyMaterials] = useState([]);
@@ -21,7 +21,7 @@ const MyStudyMaterials = () => {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/api/study-materials/user', {
+        const response = await fetch(`${API_BASE_URL}/api/study-materials/user`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const MyStudyMaterials = () => {
   const handleDelete = async (id) => {
     try {
       console.log(`Deleting material with ID: ${id}`);
-      const response = await axios.delete(`http://localhost:5000/api/study-materials/${id}`, {
+      const response = await axios.delete(`${API_BASE_URL}/api/study-materials/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -108,7 +108,7 @@ const MyStudyMaterials = () => {
                 <p className="text-sm text-gray-600">Year/Semester: {material.yearSemester}</p>
                 <p className="text-sm text-gray-600">Type: {material.materialType}</p>
                 <a 
-                  href={`http://localhost:5000/uploads/${material.file.split('\\').pop()}`} 
+                  href={`${API_BASE_URL}/uploads/${material.file.split('\\').pop()}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-blue-500 underline text-sm mt-1 block"

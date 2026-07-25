@@ -21,7 +21,7 @@ const UpdateMaterial = () => {
   useEffect(() => {
     const fetchMaterial = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/study-materials/study-materials/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/api/study-materials/study-materials/${id}`);
         setFormData({
           subjectName: response.data.subjectName,
           branch: response.data.branch,

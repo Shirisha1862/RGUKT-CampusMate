@@ -4,7 +4,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext.jsx";
-
+import { API_BASE_URL } from "../utils/api.js";
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_BASE_URL}/api/auth/login`,
         formData
       );
       // backend returns { success: true, result: user, token }
