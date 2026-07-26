@@ -18,6 +18,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    mongoConnected: mongoose.connection.readyState === 1,
+  });
+});
+
 // ✅ Serve uploads folder
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
